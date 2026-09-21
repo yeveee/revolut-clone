@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-    backend:
+  backend:
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -30,7 +30,6 @@ jobs:
         env:
           DB_PASSWORD: ${{ secrets.CI_POSTGRES_PASSWORD }}
 
-
   frontend:
     runs-on: ubuntu-latest
     steps:
@@ -44,4 +43,3 @@ jobs:
         working-directory: frontend
       - run: npm test -- --watch=false
         working-directory: frontend
-
