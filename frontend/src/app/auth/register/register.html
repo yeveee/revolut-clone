@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label for="email">Email</label>
+  <input id="email" type="email" formControlName="email">
+  @if (form.controls.email.touched && form.controls.email.invalid) {
+    <p class="error">Enter a valid email</p>
+  }
+
+  <label for="password">Password</label>
+  <input id="password" type="password" formControlName="password">
+  @if (form.controls.password.touched && form.controls.password.invalid) {
+    <p class="error">Password must be at least 8 characters</p>
+  }
+
+  <button type="submit" [disabled]="form.invalid">Register</button>
+
+  @if (successMessage) {
+    <p class="success">{{ successMessage }}</p>
+  }
+  @if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>
+  }
+</form>
