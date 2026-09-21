@@ -2,9 +2,10 @@ spring:
   application:
     name: backend
   datasource:
+    datasource:
     url: jdbc:postgresql://localhost:5432/revolut
     username: revolut
-    password: revolut
+    password: ${DB_PASSWORD:revolut}
   jpa:
     hibernate:
       ddl-auto: update
