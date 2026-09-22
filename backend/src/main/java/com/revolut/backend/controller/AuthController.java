@@ -1,5 +1,7 @@
 package com.revolut.backend.controller;
 
+import com.revolut.backend.dto.LoginRequest;
+import com.revolut.backend.dto.LoginResponse;
 import com.revolut.backend.dto.RegisterRequest;
 import com.revolut.backend.dto.UserResponse;
 import com.revolut.backend.service.AuthService;
@@ -25,5 +27,11 @@ public class AuthController {
     public ResponseEntity<UserResponse> register(@Valid @RequestBody RegisterRequest request) {
         UserResponse response = authService.register(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
+        LoginResponse response = authService.login(request);
+        return ResponseEntity.ok(response);
     }
 }

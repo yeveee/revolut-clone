@@ -2,7 +2,6 @@ spring:
   application:
     name: backend
   datasource:
-    datasource:
     url: jdbc:postgresql://localhost:5432/revolut
     username: revolut
     password: ${DB_PASSWORD:revolut}
@@ -13,6 +12,10 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+jwt:
+  secret: ${JWT_SECRET:kfLLoUIwcdMRP7tPzrsMWFoEyYWXc3RV5CNJ8PWledg=}
+  expiration-ms: 3600000
 
 server:
   port: 8080
